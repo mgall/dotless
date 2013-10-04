@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dotless", "Dotless\Dotless.csproj", "{6383787D-7612-4D8E-A878-B3FCE6673598}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bench", "Bench\Bench.csproj", "{2EBE7AF8-79A6-4E53-9D4A-C0B229692EA0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotlessTest", "DotlessTest\DotlessTest.csproj", "{925FEBBF-EAA0-47A0-85B5-A87E5C3B2E03}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6383787D-7612-4D8E-A878-B3FCE6673598}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6383787D-7612-4D8E-A878-B3FCE6673598}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6383787D-7612-4D8E-A878-B3FCE6673598}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6383787D-7612-4D8E-A878-B3FCE6673598}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2EBE7AF8-79A6-4E53-9D4A-C0B229692EA0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2EBE7AF8-79A6-4E53-9D4A-C0B229692EA0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2EBE7AF8-79A6-4E53-9D4A-C0B229692EA0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2EBE7AF8-79A6-4E53-9D4A-C0B229692EA0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{925FEBBF-EAA0-47A0-85B5-A87E5C3B2E03}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{925FEBBF-EAA0-47A0-85B5-A87E5C3B2E03}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{925FEBBF-EAA0-47A0-85B5-A87E5C3B2E03}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{925FEBBF-EAA0-47A0-85B5-A87E5C3B2E03}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
