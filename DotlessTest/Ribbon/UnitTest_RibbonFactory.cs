@@ -5,13 +5,13 @@ using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Dotless;
 
-namespace DotlessTest.Ribbon
+namespace DotlessTest.ListLess
 {
     /// <summary>
-    /// Summary description for UnitTest_RibbonFactory
+    /// Summary description for UnitTest_ListLessFactory
     /// </summary>
     [TestClass]
-    public class UnitTest_RibbonFactory
+    public class UnitTest_ListLessFactory
     {
         [TestMethod]
         public void CreateValueList()

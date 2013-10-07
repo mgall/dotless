@@ -3,10 +3,10 @@ using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Dotless;
 
-namespace DotlessTest.Ribbon
+namespace DotlessTest.ListLess
 {
     [TestClass]
-    public class UnitTest_RibbonSlicing
+    public class UnitTest_ListLessSlicing
     {
         private static int N = 100;
 
@@ -16,7 +16,7 @@ namespace DotlessTest.Ribbon
         [TestMethod]
         public void Test_DirectEmptySlicingFirst()
         {
-            var x = new Ribbon<int>(Enumerable.Range(0, N));
+            var x = new ListLess<int>(Enumerable.Range(0, N));
 
             var sliced = x[0, 0];
 
@@ -27,7 +27,7 @@ namespace DotlessTest.Ribbon
         [TestMethod]
         public void Test_DirectEmptySlicingMiddle()
         {
-            var x = new Ribbon<int>(Enumerable.Range(0, N));
+            var x = new ListLess<int>(Enumerable.Range(0, N));
 
             var sliced = x[N / 2, N / 2];
 
@@ -38,7 +38,7 @@ namespace DotlessTest.Ribbon
         [TestMethod]
         public void Test_DirectEmptySlicingLast()
         {
-            var x = new Ribbon<int>(Enumerable.Range(0, N));
+            var x = new ListLess<int>(Enumerable.Range(0, N));
 
             var sliced = x[N, N];
 
@@ -49,7 +49,7 @@ namespace DotlessTest.Ribbon
         [TestMethod]
         public void Test_DirectSingleSlicingFirst()
         {
-            var x = new Ribbon<int>(Enumerable.Range(0, N));
+            var x = new ListLess<int>(Enumerable.Range(0, N));
 
             var sliced = x[0, 1];
 
@@ -61,7 +61,7 @@ namespace DotlessTest.Ribbon
         [TestMethod]
         public void Test_DirectSingleSlicingMiddle()
         {
-            var x = new Ribbon<int>(Enumerable.Range(0, N));
+            var x = new ListLess<int>(Enumerable.Range(0, N));
 
             var sliced = x[(N / 2), (N / 2) + 1];
 
@@ -73,7 +73,7 @@ namespace DotlessTest.Ribbon
         [TestMethod]
         public void Test_DirectSingleSlicingLast()
         {
-            var x = new Ribbon<int>(Enumerable.Range(0, N));
+            var x = new ListLess<int>(Enumerable.Range(0, N));
 
             var sliced = x[N - 1, N];
 
@@ -85,7 +85,7 @@ namespace DotlessTest.Ribbon
         [TestMethod]
         public void Test_DirectFullSlicing()
         {
-            var x = new Ribbon<int>(Enumerable.Range(0, N));
+            var x = new ListLess<int>(Enumerable.Range(0, N));
 
             var sliced = x[0, N];
 
@@ -98,7 +98,7 @@ namespace DotlessTest.Ribbon
         [TestMethod]
         public void Test_DirectPartialSlicing()
         {
-            var x = new Ribbon<int>(Enumerable.Range(0, N));
+            var x = new ListLess<int>(Enumerable.Range(0, N));
 
             var sliced = x[N / 2, N];
 
@@ -115,7 +115,7 @@ namespace DotlessTest.Ribbon
         [TestMethod]
         public void Test_ReverseSingleSlicingFirst()
         {
-            var x = new Ribbon<int>(Enumerable.Range(0, N));
+            var x = new ListLess<int>(Enumerable.Range(0, N));
 
             var sliced = x[1, 0];
 
@@ -127,7 +127,7 @@ namespace DotlessTest.Ribbon
         [TestMethod]
         public void Test_ReverseSingleSlicingMiddle()
         {
-            var x = new Ribbon<int>(Enumerable.Range(0, N));
+            var x = new ListLess<int>(Enumerable.Range(0, N));
 
             var sliced = x[(N/2)+1, (N/2)];
 
@@ -139,7 +139,7 @@ namespace DotlessTest.Ribbon
         [TestMethod]
         public void Test_ReverseSingleSlicingLast()
         {
-            var x = new Ribbon<int>(Enumerable.Range(0, N));
+            var x = new ListLess<int>(Enumerable.Range(0, N));
 
             var sliced = x[N, N-1];
 
@@ -151,7 +151,7 @@ namespace DotlessTest.Ribbon
         [TestMethod]
         public void Test_ReverseFullSlicing()
         {
-            var x = new Ribbon<int>(Enumerable.Range(0, N));
+            var x = new ListLess<int>(Enumerable.Range(0, N));
 
             var sliced = x[N, 0];
 
@@ -164,7 +164,7 @@ namespace DotlessTest.Ribbon
         [TestMethod]
         public void Test_ReversePartialSlicing()
         {
-            var x = new Ribbon<int>(Enumerable.Range(0, N));
+            var x = new ListLess<int>(Enumerable.Range(0, N));
 
             var sliced = x[N, N/2];
 
@@ -182,7 +182,7 @@ namespace DotlessTest.Ribbon
         [TestMethod]
         public void Test_NegDirectEmptySlicingFirst()
         {
-            var x = new Ribbon<int>(Enumerable.Range(0, N));
+            var x = new ListLess<int>(Enumerable.Range(0, N));
 
             var sliced = x[-N, -N];
 
@@ -193,7 +193,7 @@ namespace DotlessTest.Ribbon
         [TestMethod]
         public void Test_NegDirectEmptySlicingMiddle()
         {
-            var x = new Ribbon<int>(Enumerable.Range(0, N));
+            var x = new ListLess<int>(Enumerable.Range(0, N));
 
             var sliced = x[-N/2, -N/2];
 
@@ -204,7 +204,7 @@ namespace DotlessTest.Ribbon
         [TestMethod]
         public void Test_NegDirectEmptySlicingLast()
         {
-            var x = new Ribbon<int>(Enumerable.Range(0, N));
+            var x = new ListLess<int>(Enumerable.Range(0, N));
 
             var sliced = x[-1, -1];
 
@@ -215,7 +215,7 @@ namespace DotlessTest.Ribbon
         [TestMethod]
         public void Test_NegDirectSingleSlicingFirst()
         {
-            var x = new Ribbon<int>(Enumerable.Range(0, N));
+            var x = new ListLess<int>(Enumerable.Range(0, N));
 
             var sliced = x[-(N+1), -N];
 
@@ -227,7 +227,7 @@ namespace DotlessTest.Ribbon
         [TestMethod]
         public void Test_NegDirectSingleSlicingMiddle()
         {
-            var x = new Ribbon<int>(Enumerable.Range(0, N));
+            var x = new ListLess<int>(Enumerable.Range(0, N));
 
             var sliced = x[-(N/2+1), -(N/2)];
 
@@ -239,7 +239,7 @@ namespace DotlessTest.Ribbon
         [TestMethod]
         public void Test_NegDirectSingleSlicingLast()
         {
-            var x = new Ribbon<int>(Enumerable.Range(0, N));
+            var x = new ListLess<int>(Enumerable.Range(0, N));
 
             var sliced = x[-2, -1];
 
@@ -251,7 +251,7 @@ namespace DotlessTest.Ribbon
         [TestMethod]
         public void Test_NegDirectFullSlicing()
         {
-            var x = new Ribbon<int>(Enumerable.Range(0, N));
+            var x = new ListLess<int>(Enumerable.Range(0, N));
 
             var sliced = x[0, -1];
 
@@ -264,7 +264,7 @@ namespace DotlessTest.Ribbon
         [TestMethod]
         public void Test_NegDirectPartialSlicing()
         {
-            var x = new Ribbon<int>(Enumerable.Range(0, N));
+            var x = new ListLess<int>(Enumerable.Range(0, N));
 
             var sliced = x[-(N/2+1), -1];
 

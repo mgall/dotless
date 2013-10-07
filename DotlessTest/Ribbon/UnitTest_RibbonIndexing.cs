@@ -3,10 +3,10 @@ using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Dotless;
 
-namespace DotlessTest.Ribbon
+namespace DotlessTest.ListLess
 {
     [TestClass]
-    public class UnitTest_RibbonIndexing
+    public class UnitTest_ListLessIndexing
     {
         private static int N = 100;
 
@@ -14,7 +14,7 @@ namespace DotlessTest.Ribbon
         public void AccessFirst()
         {
             var source = Enumerable.Range(0, N);
-            var x = new Ribbon<int>(source);
+            var x = new ListLess<int>(source);
 
             Assert.IsTrue(x[0] == source.First());
         }
@@ -23,7 +23,7 @@ namespace DotlessTest.Ribbon
         public void AccessMiddle()
         {
             var source = Enumerable.Range(0, N);
-            var x = new Ribbon<int>(source);
+            var x = new ListLess<int>(source);
 
             Assert.IsTrue(x[N/2] == source.ElementAt(N/2));
         }
@@ -32,7 +32,7 @@ namespace DotlessTest.Ribbon
         public void AccessNegMiddle()
         {
             var source = Enumerable.Range(0, N);
-            var x = new Ribbon<int>(source);
+            var x = new ListLess<int>(source);
 
             Assert.IsTrue(x[-N/2] == source.ElementAt(N-(N/2)));
         }
@@ -41,7 +41,7 @@ namespace DotlessTest.Ribbon
         public void AccessLast()
         {
             var source = Enumerable.Range(0, N);
-            var x = new Ribbon<int>(source);
+            var x = new ListLess<int>(source);
 
             Assert.IsTrue(x[-1] == source.Last());
         }
@@ -50,7 +50,7 @@ namespace DotlessTest.Ribbon
         public void AccessOverflow()
         {
             var source = Enumerable.Range(0, N);
-            var x = new Ribbon<int>(source);
+            var x = new ListLess<int>(source);
 
             Assert.IsTrue(x[N-1] != default(int));
             Assert.IsTrue(x[N  ] == default(int));
@@ -61,7 +61,7 @@ namespace DotlessTest.Ribbon
         public void AccessUnderflow()
         {
             var source = Enumerable.Range(-1, N);
-            var x = new Ribbon<int>(source);
+            var x = new ListLess<int>(source);
 
             Assert.IsTrue(x[-N] == -1);
             Assert.IsTrue(x[-N -1] == default(int));

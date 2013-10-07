@@ -41,17 +41,17 @@
   <ItemGroup>
     <Compile Include="Lambda\Currying.cs" />
     <Compile Include="Lambda\Lambda.cs" />
-    <Compile Include="Ribbon\Empty.cs" />
+    <Compile Include="Collections\Empty.cs" />
     <Compile Include="Texting\CaseFormatter.cs" />
     <Compile Include="Texting\DotString.cs" />
     <Compile Include="Inline.cs" />
     <Compile Include="Null.cs" />
-    <Compile Include="Ribbon\HRibbon.cs" />
+    <Compile Include="Collections\Dictless.cs" />
     <Compile Include="Meta.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Ribbon\R.cs" />
-    <Compile Include="Ribbon\Ribbon.cs" />
-    <Compile Include="Ribbon\Unity.cs" />
+    <Compile Include="Collections\R.cs" />
+    <Compile Include="Collections\Ribbon.cs" />
+    <Compile Include="Collections\Unity.cs" />
     <Compile Include="Safe.cs" />
     <Compile Include="Typing.cs" />
   </ItemGroup>

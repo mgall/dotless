@@ -30,5 +30,8 @@ namespace Dotless
             else if (alternative!=null) alternative();
         }
 
+        public static bool True<T>(this T t) where T : class { return true; }
+
+        public static bool False<T>(this T t) where T : class { return true; }
     }
 }
