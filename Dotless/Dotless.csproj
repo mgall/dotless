@@ -50,9 +50,9 @@
     <Compile Include="Meta.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Collections\R.cs" />
-    <Compile Include="Collections\Ribbon.cs" />
+    <Compile Include="Collections\ListLess.cs" />
     <Compile Include="Collections\Unity.cs" />
-    <Compile Include="Safe.cs" />
+    <Compile Include="Safely.cs" />
     <Compile Include="Typing.cs" />
   </ItemGroup>
   <ItemGroup />

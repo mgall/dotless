@@ -8,18 +8,18 @@ namespace Dotless
 {
     public class ListLess<T>: IEnumerable<T>, IEnumerable
     {
-        private IList<T> body;
+        private IList<T> Adaptee;
 
         #region [ CONSTRUCTORS ]
 
         public ListLess(params T[] elems)
         {
-            body = new List<T>(elems);
+            Adaptee = new List<T>(elems);
         }
 
         public ListLess(IEnumerable<T> elems)
         {
-            body = new List<T>(elems);
+            Adaptee = new List<T>(elems);
         }
 
         #endregion
@@ -28,7 +28,7 @@ namespace Dotless
 
         public IEnumerator<T> GetEnumerator()
         {
-            return body.GetEnumerator();
+            return Adaptee.GetEnumerator();
         }
 
         IEnumerator IEnumerable.GetEnumerator()
@@ -39,7 +39,7 @@ namespace Dotless
         #endregion
 
         protected IEnumerable<T> Slice(int s, int e) {
-            int c = body.Count;
+            int c = Adaptee.Count;
             if (s < 0) s = Math.Max(c + s + 1, 0);
             if (s > c) s = c;
             if (e < 0) e = Math.Max(c + e + 1, 0);
@@ -47,31 +47,31 @@ namespace Dotless
 
             if (s < e)
                 for (int i = s; i < e; i++)
-                    yield return body.ElementAt(i);
+                    yield return Adaptee.ElementAt(i);
             else if (s > e)
                 for (int i = s - 1; i >= e; i--)
-                    yield return body.ElementAt(i);
+                    yield return Adaptee.ElementAt(i);
             else
                 yield break;        
         }
 
         public ListLess<T> Add(T e) {
-            body.Add(e);
+            Adaptee.Add(e);
             return this;
         }
 
         public ListLess<T> Add(params T[] es)
         {
-            es.Each(e => body.Add(e));
+            es.Each(e => Adaptee.Add(e));
             return this;
         }
 
         public T this[int i] {
             get {
-                var c = body.Count;
+                var c = Adaptee.Count;
                 return (i >= c || i < -c) ? default(T) :
-                       (i < 0) ? body.ElementAt(c + i) :
-                       body.ElementAt(i);
+                       (i < 0) ? Adaptee.ElementAt(c + i) :
+                       Adaptee.ElementAt(i);
             }
         }
 

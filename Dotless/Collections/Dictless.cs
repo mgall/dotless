@@ -7,31 +7,63 @@ namespace Dotless
 {
     public class DictionaryLess<K,V>: IDictionary<K, V>
     {
+        private readonly V _DefValue;
+
+        public V DefValue { get { return _DefValue; } }
 
         private IDictionary<K, V> Adptee;
 
+        public IDictionary<K, V> More { get { return this.Adptee; } }
+
+
+        #region [ Constructors ]
+
+        // Wrapper Constructors
         public DictionaryLess(IDictionary<K, V> adptee)
         {
             this.Adptee = adptee ?? new Dictionary<K, V>();
         }
 
-        public DictionaryLess()
-            : this(new Dictionary<K, V>()) { }
+        // Empty Constructors
+        public DictionaryLess() : this(null) { }
 
-        public DictionaryLess(IEnumerable<V> elems, Func<V, K> fetchKey)
-            : this(elems.ToDictionary(fetchKey)) { }
+        // Build Constructors
+        public DictionaryLess(IEnumerable<V> elems, Func<V, K> fetchKey) : this(null) 
+        { 
+            if(Null.AnyOf(elems, fetchKey)) return;
+            foreach (var i in elems)
+                this[fetchKey(i)] = i;
+        } 
+        
+        #endregion
 
-        #region [ ]
+
+        #region [ Expressiveness ]
+        
+        public V this[K key]
+        {
+            get { return this.Get(key); }
+            set { this.Add(key, value); }
+        }
+
+        #endregion
+
+        #region [ Colletion Item Manipulation ]
 
         public bool ContainsKey(K key)
         {
             return Adptee.ContainsKey(key);
         }
 
+        public bool HasKey(K key)
+        {
+            return this.ContainsKey(key);
+        }
+
         public virtual V Get(K key)
         {
             V value;
-            return (Adptee.TryGetValue(key, out value)) ? value : default(V);
+            return (Adptee.TryGetValue(key, out value)) ? value : DefValue;
         }
 
         public virtual DictionaryLess<K, V> Add(K key, V value)
@@ -61,21 +93,13 @@ namespace Dotless
         {
             if (!condition) Adptee.Remove(key);
             return this; // Fluent
-        } 
-
-        #endregion
-
-        #region [ Expressiveness ]
-        
-        public V this[K key]
-        {
-            get { return this.Get(key); }
-            set { this.Add(key, value); }
         }
 
         #endregion
 
         public int Count { get { return Adptee.Count; } }
+
+        public bool IsEmpty { get { return this.Adptee.FirstOrDefault().Value.Equals(DefValue); } }
 
         public DictionaryLess<K, V> Overlap(IDictionary<K, V> that)
         {
@@ -155,9 +179,18 @@ namespace Dotless
         {
             throw new NotImplementedException();
         } 
+        
         #endregion
     }
 
-    public class Dictless<K, V> : DictionaryLess<K, V> { }
+    public class Dictless<K, V> : DictionaryLess<K, V> { 
+    
+        public Dictless(IDictionary<K, V> adptee): base(adptee) {}
+
+        public Dictless(): base() { }
+
+        public Dictless(IEnumerable<V> elems, Func<V, K> fetchKey): base(elems, fetchKey) { }
+    
+    }
 
 }

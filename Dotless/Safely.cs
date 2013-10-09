@@ -5,8 +5,9 @@ using System.Text;
 
 namespace Dotless
 {
-    public static class Safe
+    public static class Safely
     {
+
         public static T Get<T>(this T t, T defValue = null)  where T: class
         {
             return (t == null) ? defValue : t;
@@ -30,8 +31,5 @@ namespace Dotless
             else if (alternative!=null) alternative();
         }
 
-        public static bool True<T>(this T t) where T : class { return true; }
-
-        public static bool False<T>(this T t) where T : class { return true; }
     }
 }

@@ -53,6 +53,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="Collections\UnitTest_Dictless.cs" />
     <Compile Include="Conversion\UnitTest_BoolConversion.cs" />
     <Compile Include="Dummies\DummyEnum.cs" />
     <Compile Include="Ribbon\UnitTest_RibbonFactory.cs" />

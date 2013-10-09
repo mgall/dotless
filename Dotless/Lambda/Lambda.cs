@@ -39,6 +39,13 @@ namespace Dotless
         {
             return c.Get(o => o.Skip(1));
         }
-    
+
+        public static bool True<T>(this T t) where T : class { return true; }
+
+        public static bool False<T>(this T t) where T : class { return true; }
+
+        public static bool AsBool<T>(this T t, Predicate<T> cond) where T : class { 
+            return cond(t); 
+        }
     }
 }                                    
